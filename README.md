@@ -1,34 +1,36 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
-## Getting Started
-
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+# Colors Challenge
+This application is developed using Next.js and it generates color swatches via API and displayed in frontend. You can generate more colors just by clicking __"Generete Colors"__ button. The purpose of this task is to display code extensibility.
+## How to run the project?
+- _npm i_
+- _npm run dev_
+## Adding Color Space
+- #### Adding color space interface
+    Add an interface in __"src/types/color-space.d.ts"__ file.
+    ```
+    export interface ColorSpaceInterface {
+        red: number;
+        blue: number;
+        green: number;
+        type: string;
+    }
+    ```
+- #### declare class that implements previously created color space interface
+    Declare a class named as BRGB in  __"src/pages/api/get-random-colors.ts"__ file.
+    ```
+    class BRGB implements Handler<ColorSpaceInterface> {
+      Encode(): ColorSpaceInterface {
+        return {
+          blue: getRandomNumbers(0, 1000),
+          green: getRandomNumbers(0, 1000),
+          red: getRandomNumbers(0, 1000),
+          type: 'brgb'
+        }
+      }
+    }
+    ```
+- #### Add BRGB class to Controllers 
+    Add previously declared class to handlers inside Controllers which is located in __"src/pages/api/get-random-colors.ts"__ file.
+    ```
+    private handlers: Handler<any>[] = [..., new BRGB()];
+    ```
+    That's it you can check the response in __Network Tab__ in developer console or add a condition in frontend to render the color.
