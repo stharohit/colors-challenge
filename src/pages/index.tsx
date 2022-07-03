@@ -32,13 +32,10 @@ const mapColors = (colors: Array<TColorSpace> | undefined) => {
 
   const getColorMap = (color: TColorSpace) => {
     if (isRGB(color)) {
-      console.log('rgb');
-      
       return `rgb(${color.red}, ${color.blue}, ${color.green})`
     }
 
     if (isHSL(color)) {
-      console.log('hsl');
       return `hsl(${color.hue}, ${color.saturation}%, ${color.lightness}%)`
     }
   }
