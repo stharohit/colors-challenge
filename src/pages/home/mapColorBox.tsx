@@ -15,7 +15,7 @@ const mapColorBox = (colors: Array<TColorSpace>) => {
   }
 
   return colors.map(color => (
-    <div className={styles.colorBox} style={{ background: getColorMap(color) }}></div>
+    <div key={JSON.stringify(color)} className={styles.colorBox} style={{ background: getColorMap(color) }}></div>
   ))
 }
 
