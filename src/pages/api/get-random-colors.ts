@@ -1,14 +1,14 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next'
 
-interface RGBColor {
+export interface RGBColor {
   red: number;
   green: number;
   blue: number;
   type: string;
 }
 
-interface HSLColor {
+export interface HSLColor {
   hue: number;
   saturation: number;
   lightness: number;
