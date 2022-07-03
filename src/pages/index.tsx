@@ -1,10 +1,8 @@
+import { TColorSpace } from '@/types/color-space';
 import type { NextPage } from 'next'
 import { useEffect, useState } from 'react'
 import styles from '../../styles/Home.module.css'
 import { isHSL, isRGB } from '../utils/checkColorSpace';
-import { HSLColor, RGBColor } from './api/get-random-colors';
-
-export type TColorSpace = RGBColor | HSLColor;
 
 const Home: NextPage = () => {
 
