@@ -10,20 +10,26 @@ const Home: NextPage = () => {
 
   const [colors, setcolors] = useState<Array<TColorSpace>>();
 
+  const callHello = () => {
+    fetch('/api/get-random-colors').then(res => res.json()).then(res => setcolors(res))
+  }
+
+  const generateColors = () => {
+    callHello()
+  }
+
   useEffect(() => {
-    const callHello = () => {
-      fetch('/api/get-random-colors').then(res => res.json()).then(res => setcolors(res))
-    }
 
     callHello()
-  },[])
-  
+  }, [])
+
 
   return (
     <div className={styles.container}>
       <div className={styles.swatchPanel}>
         {mapColors(colors)}
       </div>
+      <button className={styles.generateBtn} onClick={generateColors}>Generate Colors</button>
     </div>
   )
 }
@@ -43,7 +49,7 @@ const mapColors = (colors: Array<TColorSpace> | undefined) => {
   if (!colors) return null;
 
   return colors.map(color => (
-    <div className={styles.colorBox} style={{background: getColorMap(color)}}></div>
+    <div className={styles.colorBox} style={{ background: getColorMap(color) }}></div>
   ))
 }
 
