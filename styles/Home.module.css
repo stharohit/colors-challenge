@@ -4,13 +4,13 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  background-color: antiquewhite;
+  background-color: #08637e;
 }
 
 .swatchPanel {
   width: 500px;
   min-height: 300px;
-  background-color: #fff;
+  background-color: rgb(49, 48, 48);
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.15);
   border-radius: 25px;
   padding: 1em;
@@ -32,10 +32,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgb(79, 161, 236);
+  background-color: #021832;
   color: #fff;
   border: none;
   border-radius: 8px;
   cursor: pointer;
   font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
 }
