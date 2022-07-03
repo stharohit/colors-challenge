@@ -7,7 +7,7 @@ interface Handler<T> {
 }
 
 class RGB implements Handler<RGBColor> {
-  Encode(color: any): RGBColor {
+  Encode(): RGBColor {
     return {
       blue: getRandomNumbers(0, 255),
       green: getRandomNumbers(0, 255),
@@ -18,7 +18,7 @@ class RGB implements Handler<RGBColor> {
 }
 
 class HSL implements Handler<HSLColor> {
-  Encode(color: any): HSLColor {
+  Encode(): HSLColor {
     return {
       hue: getRandomNumbers(1, 360),
       saturation: getRandomNumbers(0, 100),
